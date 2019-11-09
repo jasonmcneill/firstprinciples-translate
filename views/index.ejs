@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <form>
+
+          <div class="form-group">
+            <label for="Name">Name:</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" class="form-control" id="email">
+          </div>
+
+          <div class="form-group">
+            <label for="lang">Translating into...</label>
+            <select class="form-control" id="lang">
+              <option value="">(Select)</option>
+              <option value="de">German</option>
+              <option value="ru">Russian</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="bibleversion">Bible version<span id="bibleversion_lang"></span>:</label>
+            <select class="form-control" id="bibleversion">
+              <option value="">(Select)</option>
+              <option value="niv">NIV (English)</option>
+              <option value="nvi">NVI (Spanish)</option>
+            </select>
+          </div>
+
+        </form>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    (function () {
+
+      // Handles
+
+      const lang = document.querySelector('#lang');
+      const biblelang = document.querySelector('#bibleversion_lang');
+
+
+      // Methods
+
+      function onSelectLanguage(e) {
+        populateBibleVersionLanguage(e);
+      }
+
+      function populateBibleVersionLanguage(e) {
+        let response = "";
+        if (e.target.value.length === 2) {
+          response = ` in ${e.target.selectedOptions[0].innerText}`;
+        }
+        biblelang.innerText = response;
+      }
+
+      function getLanguages() {
+        fetch("firstprinciples-materialdesign/languages.json")
+          .then(r => r.json())
+          .then(r => {
+            console.log(r);
+          }).catch(error => console.error(error));
+      }
+
+      function init() {
+        getLanguages();
+      }
+
+
+      // Listeners
+
+      lang.addEventListener('change', onSelectLanguage, false);
+
+
+      // Initialize
+      init();
+
+    })();
+
+  </script>
+
+
+</body>
+
+</html>
