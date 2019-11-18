@@ -18,12 +18,12 @@
         <form>
 
           <div class="form-group">
-            <label for="Name">Name:</label>
+            <label for="Name">Your name:</label>
             <input type="text" class="form-control" id="name">
           </div>
 
           <div class="form-group">
-            <label for="email">E-mail:</label>
+            <label for="email">Your e-mail:</label>
             <input type="email" class="form-control" id="email">
           </div>
 
@@ -31,18 +31,12 @@
             <label for="lang">Translating into...</label>
             <select class="form-control" id="lang">
               <option value="">(Select)</option>
-              <option value="de">German</option>
-              <option value="ru">Russian</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="bibleversion">Bible version<span id="bibleversion_lang"></span>:</label>
-            <select class="form-control" id="bibleversion">
-              <option value="">(Select)</option>
-              <option value="niv">NIV (English)</option>
-              <option value="nvi">NVI (Spanish)</option>
-            </select>
+            <label for="bibleversion">Name of Bible version<span id="bibleversion_lang"></span>:</label>
+            <input type="text" class="form-control" id="bibleversion" />
           </div>
 
         </form>
@@ -55,45 +49,86 @@
   <script type="text/javascript">
     (function () {
 
-      // Handles
+      // DOM Handles:
+      const langDropdown = document.querySelector('#lang');
+      const bibleLangDropdown = document.querySelector('#bibleversion_lang');
 
-      const lang = document.querySelector('#lang');
-      const biblelang = document.querySelector('#bibleversion_lang');
-
-
-      // Methods
+      // Methods:
 
       function onSelectLanguage(e) {
         populateBibleVersionLanguage(e);
       }
 
+      function getAllLanguages() {
+        return new Promise((resolve, reject) => {
+          fetch("/js/json/ISO-639-1-language.json")
+            .then(r => r.json())
+            .then(r => {
+              resolve(r);
+            }).catch(error => reject(error));
+        });
+      }
+
+      function getTranslatedLanguages() {
+        return new Promise((resolve, reject) => {
+          fetch("firstprinciples-materialdesign/languages.json")
+            .then(r => r.json())
+            .then(r => {
+              resolve(r);
+            }).catch(error => reject(error));
+        });
+      }
+
       function populateBibleVersionLanguage(e) {
         let response = "";
         if (e.target.value.length === 2) {
-          response = ` in ${e.target.selectedOptions[0].innerText}`;
+          response = ` for ${e.target.selectedOptions[0].innerText}`;
         }
-        biblelang.innerText = response;
+        bibleLangDropdown.innerText = response;
       }
 
-      function getLanguages() {
-        fetch("firstprinciples-materialdesign/languages.json")
-          .then(r => r.json())
-          .then(r => {
-            console.log(r);
-          }).catch(error => console.error(error));
+      function populateLanguages(r) {
+        const translatedLanguages = r[0];
+        const allLanguages = r[1];
+        const untranslatedLanguages = allLanguages.filter(language => {
+          let isTranslated = false;
+          translatedLanguages.forEach(translated => {
+            if (translated.iso === language.code) {
+              isTranslated = true;
+            }
+          });
+          return (!isTranslated);
+        });
+        const untranslatedLanguagesQuantity = untranslatedLanguages.length;
+        const defaultEl = document.createElement('option');
+        defaultEl.textContent = '(Select)';
+        defaultEl.value = '';
+        langDropdown.appendChild(defaultEl);
+        for (let i = 0; i < untranslatedLanguagesQuantity; i++) {
+          const opt = untranslatedLanguages[i];
+          const el = document.createElement('option');
+          el.textContent = opt.name;
+          el.value = opt.code;
+          langDropdown.appendChild(el);
+        }
+      }
+
+      function retrieveAndPopulateLanguages() {
+        const translatedLanguages = getTranslatedLanguages();
+        const allLanguages = getAllLanguages();
+        Promise.all([translatedLanguages, allLanguages]).then(r => {
+          populateLanguages(r);
+        }).catch(error => console.error(error));
       }
 
       function init() {
-        getLanguages();
+        retrieveAndPopulateLanguages();
       }
 
+      // Listeners:
+      langDropdown.addEventListener('change', onSelectLanguage, false);
 
-      // Listeners
-
-      lang.addEventListener('change', onSelectLanguage, false);
-
-
-      // Initialize
+      // Initialize:
       init();
 
     })();
