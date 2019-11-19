@@ -1,3 +1,25 @@
-body .container:first-child {
-  margin-top: 10px;
+.fp-side-nav {
+  background-color: #343a40;
+  color: #ddd;
+  height: 100vh;
+  padding-left: 10px;
+}
+
+.fp-main {
+  height: 100vh;
+  padding-left: 0;
+}
+
+.nav a {
+  color: #aaa;
+}
+
+.nav a:hover {
+  color: #ddd;
+}
+
+.nav a div {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  margin-top: 5px;
 }

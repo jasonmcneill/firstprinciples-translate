@@ -5,49 +5,94 @@
   <title><%= title %></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-5.11.2-web/css/all.min.css">
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body>
 
-  <div class="container">
+  <div class="container-fluid fp-master">
     <div class="row">
-      <div class="col-sm-4">
-        <form>
 
-          <div class="form-group">
-            <label for="Name">Your name:</label>
-            <input type="text" class="form-control" id="name">
+      <div class="col-sm-1 fp-side-nav d-none d-sm-block">
+        <ul class="nav flex-column">
+          <li class="nav-item mt-2 mb-4 text-center">
+            <a class="nav-link" href="#">
+              <i class="fas fa-cog fa-2x"></i>
+              <div>Settings</div>
+            </a>
+          </li>
+          <li class="nav-item mb-4 text-center">
+            <a class="nav-link" href="#">
+              <i class="fas fa-bible fa-2x"></i>
+              <div>Scriptures</div>
+            </a>
+          </li>
+          <li class="nav-item mb-4 text-center">
+            <a class="nav-link" href="#">
+              <i class="far fa-file-alt fa-2x"></i><br>
+              <div>Pages</div>
+            </a>
+          </li>
+          <li class="nav-item mb-4 text-center">
+            <a class="nav-link" href="#">
+              <i class="fas fa-globe fa-2x"></i>
+              <div>Global<br>Content</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-11 fp-main py-2 bg-light text-dark">
+        <form id="form-settings">
+
+          <div class="container ml-3">
+            <div class="row">
+              <div class="col-sm-6">
+
+                <h1 class="mt-0 mb-3">Settings</h1>
+
+                <div class="form-group mb-4">
+                  <label for="Name">Your name:</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+
+                <div class="form-group mb-4">
+                  <label for="email">Your e-mail:</label>
+                  <input type="email" class="form-control" id="email">
+                </div>
+
+                <div class="form-group mb-4">
+                  <label for="lang">Translating into...</label>
+                  <select class="form-control" id="lang">
+                    <option value="">(Select)</option>
+                  </select>
+                </div>
+
+                <div class="form-group mb-4">
+                  <label for="bibleversion">Name of Bible version<span id="bibleversion_lang"></span>:</label>
+                  <input type="text" class="form-control" id="bibleversion" />
+                </div>
+
+                <div>
+                  <button type="submit" class="btn btn-primary">
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div class="form-group">
-            <label for="email">Your e-mail:</label>
-            <input type="email" class="form-control" id="email">
-          </div>
-
-          <div class="form-group">
-            <label for="lang">Translating into...</label>
-            <select class="form-control" id="lang">
-              <option value="">(Select)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="bibleversion">Name of Bible version<span id="bibleversion_lang"></span>:</label>
-            <input type="text" class="form-control" id="bibleversion" />
-          </div>
-
-        </form>
 
         </form>
       </div>
     </div>
   </div>
 
-  <script type="text/javascript" src="/js/configpage.js"></script>
-
+  <script type="text/javascript" src="/js/page_settings.js"></script>
+  <script type="text/javascript" src="/js/jquery-3.3.1.slim.min.js"></script>
+  <script type="text/javascript" src="/js/popper.min.js"></script>
+  <script type="text/javascript" src="/css/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 
 </body>
 
