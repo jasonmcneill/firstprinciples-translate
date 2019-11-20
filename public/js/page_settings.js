@@ -7,8 +7,7 @@
   // Methods:
 
   function onSubmit(e) {
-    console.log("Form submitted", e);
-    e.preventDefault();
+    validate(e);
   }
 
   function onSelectLanguage(e) {
@@ -81,13 +80,76 @@
       .catch(error => console.error(error));
   }
 
+  function resetValidation() {
+    const formFields = document.querySelectorAll("input[type=text], select");
+    formFields.forEach(item => {
+      item.classList.remove("is-invalid");
+      item.classList.remove("is-valid");
+    });
+  }
+
+  function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  function validate(e) {
+    let errorCount = 0;
+    resetValidation();
+
+    // Name
+    const name = document.querySelector("#name");
+    if (name.value.trim().length === 0) {
+      errorCount++;
+      name.classList.add("is-invalid");
+    }
+
+    // E-mail
+    const email = document.querySelector("#email");
+    const emailError = email.parentElement.querySelector(".invalid-feedback");
+    const isValidEmailFormat = validateEmail(email.value);
+    emailError.innerText = "Please input your e-mail address.";
+    if (email.value.length === 0) {
+      errorCount++;
+      email.classList.add("is-invalid");
+    } else if (isValidEmailFormat === false) {
+      errorCount++;
+      emailError.innerText =
+        "Please check your e-mail address for proper formatting.";
+      email.classList.add("is-invalid");
+    } else {
+      email.classList.remove("is-invalid");
+    }
+
+    // Translating into language
+    const lang = document.querySelector("#lang");
+    if (lang.selectedOptions[0].value.length === 0) {
+      errorCount++;
+      lang.classList.add("is-invalid");
+    }
+
+    // Bible version
+    const bibleVersion = document.querySelector("#bibleversion");
+    if (bibleVersion.value.length === 0) {
+      errorCount++;
+      bibleVersion.classList.add("is-invalid");
+    }
+
+    // Final check
+    if (errorCount >= 1) {
+      e.preventDefault();
+    } else {
+      e.preventDefault();
+    }
+  }
+
   function init() {
     retrieveAndPopulateLanguages();
   }
 
   // Listeners:
   langDropdown.addEventListener("change", onSelectLanguage, false);
-  formSettings.addEventListener("click", onSubmit, false);
+  formSettings.addEventListener("submit", onSubmit, false);
 
   // Initialize:
   init();

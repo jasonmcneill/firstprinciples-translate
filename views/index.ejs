@@ -45,7 +45,7 @@
       </div>
 
       <div class="col-sm-11 fp-main py-2 bg-light text-dark">
-        <form id="form-settings">
+        <form id="form-settings" novalidate>
 
           <div class="container ml-3">
             <div class="row">
@@ -53,26 +53,34 @@
 
                 <h1 class="mt-0 mb-3">Settings</h1>
 
-                <div class="form-group mb-4">
+                <div class="form-group mb-4" id="name_group">
                   <label for="Name">Your name:</label>
-                  <input type="text" class="form-control" id="name">
+                  <input type="text" class="form-control" id="name" required>
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Please input your name.</div>
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="form-group mb-4" id="email_group">
                   <label for="email">Your e-mail:</label>
                   <input type="email" class="form-control" id="email">
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Please input your e-mail address.</div>
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="form-group mb-4" id="lang_group">
                   <label for="lang">Translating into...</label>
                   <select class="form-control" id="lang">
                     <option value="">(Select)</option>
                   </select>
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Please select the language that you're translating into.</div>
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="form-group mb-4" id="bibleversion_lang_group">
                   <label for="bibleversion">Name of Bible version<span id="bibleversion_lang"></span>:</label>
                   <input type="text" class="form-control" id="bibleversion" />
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Please input the Bible version.</div>
                 </div>
 
                 <div>
