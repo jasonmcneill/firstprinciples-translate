@@ -1,8 +1,8 @@
 (function() {
   // DOM Handles:
   const langDropdown = document.querySelector("#lang");
-  const bibleLangDropdown = document.querySelector("#bibleversion_lang");
   const formSettings = document.querySelector("#form-settings");
+  let allBibleVersions = [];
 
   // Methods:
 
@@ -11,7 +11,27 @@
   }
 
   function onSelectLanguage(e) {
-    populateBibleVersionLanguage(e);
+    const selectedLanguage = e.target.selectedOptions[0].value;
+    filterBibleVersionLanguages(selectedLanguage);
+  }
+
+  function filterBibleVersionLanguages(languageSelected) {
+    const bibleVersionGroup = document.querySelector(
+      "#bibleversion_lang_group"
+    );
+    const bibleVersionDropdown = document.querySelector("#bibleversion");
+    const versionsForThisLanguage = allBibleVersions.filter(
+      version => version.lang === languageSelected
+    );
+    let newOptions = "<option value='' selected>(Select)</option>";
+    bibleVersionGroup.classList.add("d-none");
+    bibleVersionDropdown.innerHTML = "";
+    if (versionsForThisLanguage.length === 0) return;
+    versionsForThisLanguage.forEach(item => {
+      newOptions += `<option value=${item.code}>${item.name}</option>`;
+    });
+    bibleVersionDropdown.innerHTML = newOptions;
+    bibleVersionGroup.classList.remove("d-none");
   }
 
   function getAllLanguages() {
@@ -26,27 +46,50 @@
   }
 
   function getTranslatedLanguages() {
+    const languagesURL = "firstprinciples-materialdesign/languages.json";
     return new Promise((resolve, reject) => {
-      fetch("firstprinciples-materialdesign/languages.json")
-        .then(r => r.json())
-        .then(r => {
-          resolve(r);
+      fetch(languagesURL)
+        .then(response => response.json())
+        .then(response => {
+          resolve(response);
         })
         .catch(error => reject(error));
     });
   }
 
-  function populateBibleVersionLanguage(e) {
-    let response = "";
-    if (e.target.value.length === 2) {
-      response = ` for ${e.target.selectedOptions[0].innerText}`;
+  function getBibleVersions() {
+    return new Promise((resolve, reject) => {
+      const translationsURL = "/js/json/bible-translations.json";
+      fetch(translationsURL)
+        .then(response => response.json())
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => reject(error));
+    });
+  }
+
+  function populateBibleVersionLanguages(versions) {
+    const bibleVersionDropdown = document.querySelector("#bibleversion");
+    const versionsQuantity = versions.length;
+    const defaultEl = document.createElement("option");
+    defaultEl.textContent = "(Select)";
+    defaultEl.value = "";
+    bibleVersionDropdown.appendChild(defaultEl);
+    for (let i = 0; i < versionsQuantity; i++) {
+      const opt = versions[i];
+      const el = document.createElement("option");
+      el.textContent = opt.name;
+      el.value = opt.code;
+      el.setAttribute("data-lang", opt.lang);
+      bibleVersionDropdown.appendChild(el);
     }
-    bibleLangDropdown.innerText = response;
   }
 
   function populateLanguages(r) {
     const translatedLanguages = r[0];
     const allLanguages = r[1];
+    allBibleVersions = r[2].translations;
     const untranslatedLanguages = allLanguages.filter(language => {
       let isTranslated = false;
       translatedLanguages.forEach(translated => {
@@ -56,13 +99,39 @@
       });
       return !isTranslated;
     });
-    const untranslatedLanguagesQuantity = untranslatedLanguages.length;
+    const untranslatedLanguagesWithBibleVersions = untranslatedLanguages.filter(
+      language => {
+        let hasABibleVersion = false;
+        for (let i = 0; i < allBibleVersions.length; i++) {
+          const versionCode = allBibleVersions[i].lang;
+          const languageCode = language.code;
+          if (versionCode === languageCode) {
+            hasABibleVersion = true;
+          }
+        }
+        return hasABibleVersion;
+      }
+    );
+    const bibleVersionsAvailable = allBibleVersions.filter(version => {
+      let shouldIncludeVersion = false;
+      for (let i = 0; i < untranslatedLanguagesWithBibleVersions.length; i++) {
+        const bibleVersionLang = version.lang;
+        const untranslatedLang = untranslatedLanguagesWithBibleVersions[i].code;
+        if (bibleVersionLang === untranslatedLang) {
+          shouldIncludeVersion = true;
+        }
+      }
+      return shouldIncludeVersion;
+    });
+    const untranslatedLanguagesQuantity =
+      untranslatedLanguagesWithBibleVersions.length;
     const defaultEl = document.createElement("option");
     defaultEl.textContent = "(Select)";
     defaultEl.value = "";
     langDropdown.appendChild(defaultEl);
+    populateBibleVersionLanguages(bibleVersionsAvailable);
     for (let i = 0; i < untranslatedLanguagesQuantity; i++) {
-      const opt = untranslatedLanguages[i];
+      const opt = untranslatedLanguagesWithBibleVersions[i];
       const el = document.createElement("option");
       el.textContent = opt.name;
       el.value = opt.code;
@@ -73,9 +142,10 @@
   function retrieveAndPopulateLanguages() {
     const translatedLanguages = getTranslatedLanguages();
     const allLanguages = getAllLanguages();
-    Promise.all([translatedLanguages, allLanguages])
-      .then(r => {
-        populateLanguages(r);
+    const bibleVersions = getBibleVersions();
+    Promise.all([translatedLanguages, allLanguages, bibleVersions])
+      .then(response => {
+        populateLanguages(response);
       })
       .catch(error => console.error(error));
   }
@@ -130,7 +200,7 @@
 
     // Bible version
     const bibleVersion = document.querySelector("#bibleversion");
-    if (bibleVersion.value.length === 0) {
+    if (bibleVersion.selectedOptions[0].value.length === 0) {
       errorCount++;
       bibleVersion.classList.add("is-invalid");
     }
