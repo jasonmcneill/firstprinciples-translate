@@ -8,6 +8,32 @@
 
   function onSubmit(e) {
     validate(e);
+    const name = document.querySelector("#name").value;
+    const email = document.querySelector("#email").value;
+    const lang = document.querySelector("#lang").selectedOptions[0].value;
+    const langName = document.querySelector("#lang").selectedOptions[0]
+      .innerText;
+    const bibleVersion = document.querySelector("#bibleversion")
+      .selectedOptions[0].value;
+    const bibleVersionName = document.querySelector("#bibleversion")
+      .selectedOptions[0].innerText;
+    const saveObject = {
+      translator: {
+        name: name,
+        email: email
+      },
+      lang: {
+        name: langName,
+        code: lang
+      },
+      bibleVersion: {
+        name: bibleVersionName,
+        code: bibleVersion
+      }
+    };
+    localStorage.removeItem("settings");
+    localStorage.setItem("settings", JSON.stringify(saveObject));
+    toastPopup("Your settings have been saved.", "Saved");
   }
 
   function onSelectLanguage(e) {
@@ -158,6 +184,17 @@
     });
   }
 
+  function toastPopup(message, textHeadline, textMuted) {
+    const toast = document.querySelector(".toast");
+    let headline = textHeadline || "";
+    let headtinytext = textMuted || "";
+    if (!message) return;
+    toast.querySelector(".toast-body").innerText = message;
+    toast.querySelector(".mr-auto").innerText = headline;
+    toast.querySelector(".text-muted").innerText = headtinytext;
+    $(".toast").toast("show");
+  }
+
   function validateEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
@@ -215,6 +252,11 @@
 
   function init() {
     retrieveAndPopulateLanguages();
+    $(".toast").toast({
+      animation: true,
+      autohide: true,
+      delay: 5000
+    });
   }
 
   // Listeners:
