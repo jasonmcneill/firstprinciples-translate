@@ -1,742 +1,927 @@
 [
   {
     "code": "ab",
-    "name": "Abkhaz"
+    "name": "Abkhaz",
+    "dir": "ltr"
   },
   {
     "code": "aa",
-    "name": "Afar"
+    "name": "Afar",
+    "dir": "ltr"
   },
   {
     "code": "af",
-    "name": "Afrikaans"
+    "name": "Afrikaans",
+    "dir": "ltr"
   },
   {
     "code": "ak",
-    "name": "Akan"
+    "name": "Akan",
+    "dir": "ltr"
   },
   {
     "code": "sq",
-    "name": "Albanian"
+    "name": "Albanian",
+    "dir": "ltr"
   },
   {
     "code": "am",
-    "name": "Amharic"
+    "name": "Amharic",
+    "dir": "ltr"
   },
   {
     "code": "ar",
-    "name": "Arabic"
+    "name": "Arabic",
+    "dir": "rtl"
   },
   {
     "code": "an",
-    "name": "Aragonese"
+    "name": "Aragonese",
+    "dir": "ltr"
   },
   {
     "code": "hy",
-    "name": "Armenian"
+    "name": "Armenian",
+    "dir": "ltr"
   },
   {
     "code": "as",
-    "name": "Assamese"
+    "name": "Assamese",
+    "dir": "ltr"
   },
   {
     "code": "av",
-    "name": "Avaric"
+    "name": "Avaric",
+    "dir": "ltr"
   },
   {
     "code": "ae",
-    "name": "Avestan"
+    "name": "Avestan",
+    "dir": "ltr"
   },
   {
     "code": "ay",
-    "name": "Aymara"
+    "name": "Aymara",
+    "dir": "ltr"
   },
   {
     "code": "az",
-    "name": "Azerbaijani"
+    "name": "Azerbaijani",
+    "dir": "ltr"
   },
   {
     "code": "bm",
-    "name": "Bambara"
+    "name": "Bambara",
+    "dir": "ltr"
   },
   {
     "code": "ba",
-    "name": "Bashkir"
+    "name": "Bashkir",
+    "dir": "ltr"
   },
   {
     "code": "eu",
-    "name": "Basque"
+    "name": "Basque",
+    "dir": "ltr"
   },
   {
     "code": "be",
-    "name": "Belarusian"
+    "name": "Belarusian",
+    "dir": "ltr"
   },
   {
     "code": "bn",
-    "name": "Bengali; Bangla"
+    "name": "Bengali; Bangla",
+    "dir": "ltr"
   },
   {
     "code": "bh",
-    "name": "Bihari"
+    "name": "Bihari",
+    "dir": "ltr"
   },
   {
     "code": "bi",
-    "name": "Bislama"
+    "name": "Bislama",
+    "dir": "ltr"
   },
   {
     "code": "bs",
-    "name": "Bosnian"
+    "name": "Bosnian",
+    "dir": "ltr"
   },
   {
     "code": "br",
-    "name": "Breton"
+    "name": "Breton",
+    "dir": "ltr"
   },
   {
     "code": "bg",
-    "name": "Bulgarian"
+    "name": "Bulgarian",
+    "dir": "ltr"
   },
   {
     "code": "my",
-    "name": "Burmese"
+    "name": "Burmese",
+    "dir": "ltr"
   },
   {
     "code": "ca",
-    "name": "Catalan; Valencian"
+    "name": "Catalan; Valencian",
+    "dir": "ltr"
   },
   {
     "code": "ch",
-    "name": "Chamorro"
+    "name": "Chamorro",
+    "dir": "ltr"
   },
   {
     "code": "ce",
-    "name": "Chechen"
+    "name": "Chechen",
+    "dir": "ltr"
   },
   {
     "code": "ny",
-    "name": "Chichewa; Chewa; Nyanja"
+    "name": "Chichewa; Chewa; Nyanja",
+    "dir": "ltr"
   },
   {
     "code": "zh",
-    "name": "Chinese"
+    "name": "Chinese",
+    "dir": "ltr"
   },
   {
     "code": "cv",
-    "name": "Chuvash"
+    "name": "Chuvash",
+    "dir": "ltr"
   },
   {
     "code": "kw",
-    "name": "Cornish"
+    "name": "Cornish",
+    "dir": "ltr"
   },
   {
     "code": "co",
-    "name": "Corsican"
+    "name": "Corsican",
+    "dir": "ltr"
   },
   {
     "code": "cr",
-    "name": "Cree"
+    "name": "Cree",
+    "dir": "ltr"
   },
   {
     "code": "hr",
-    "name": "Croatian"
+    "name": "Croatian",
+    "dir": "ltr"
   },
   {
     "code": "cs",
-    "name": "Czech"
+    "name": "Czech",
+    "dir": "ltr"
   },
   {
     "code": "da",
-    "name": "Danish"
+    "name": "Danish",
+    "dir": "ltr"
   },
   {
     "code": "dv",
-    "name": "Divehi; Dhivehi; Maldivian;"
+    "name": "Divehi; Dhivehi; Maldivian;",
+    "dir": "rtl"
   },
   {
     "code": "nl",
-    "name": "Dutch"
+    "name": "Dutch",
+    "dir": "ltr"
   },
   {
     "code": "dz",
-    "name": "Dzongkha"
+    "name": "Dzongkha",
+    "dir": "ltr"
   },
   {
     "code": "en",
-    "name": "English"
+    "name": "English",
+    "dir": "ltr"
   },
   {
     "code": "eo",
-    "name": "Esperanto"
+    "name": "Esperanto",
+    "dir": "ltr"
   },
   {
     "code": "et",
-    "name": "Estonian"
+    "name": "Estonian",
+    "dir": "ltr"
   },
   {
     "code": "ee",
-    "name": "Ewe"
+    "name": "Ewe",
+    "dir": "ltr"
   },
   {
     "code": "fo",
-    "name": "Faroese"
+    "name": "Faroese",
+    "dir": "ltr"
   },
   {
     "code": "fj",
-    "name": "Fijian"
+    "name": "Fijian",
+    "dir": "ltr"
   },
   {
     "code": "fi",
-    "name": "Finnish"
+    "name": "Finnish",
+    "dir": "ltr"
   },
   {
     "code": "fr",
-    "name": "French"
+    "name": "French",
+    "dir": "ltr"
   },
   {
     "code": "ff",
-    "name": "Fula; Fulah; Pulaar; Pular"
+    "name": "Fula; Fulah; Pulaar; Pular",
+    "dir": "ltr"
   },
   {
     "code": "gl",
-    "name": "Galician"
+    "name": "Galician",
+    "dir": "ltr"
   },
   {
     "code": "ka",
-    "name": "Georgian"
+    "name": "Georgian",
+    "dir": "ltr"
   },
   {
     "code": "de",
-    "name": "German"
+    "name": "German",
+    "dir": "ltr"
   },
   {
     "code": "el",
-    "name": "Greek, Modern"
+    "name": "Greek, Modern",
+    "dir": "ltr"
   },
   {
     "code": "gn",
-    "name": "GuaranÃ­"
+    "name": "GuaranÃ­",
+    "dir": "ltr"
   },
   {
     "code": "gu",
-    "name": "Gujarati"
+    "name": "Gujarati",
+    "dir": "ltr"
   },
   {
     "code": "ht",
-    "name": "Haitian; Haitian Creole"
+    "name": "Haitian; Haitian Creole",
+    "dir": "ltr"
   },
   {
     "code": "ha",
-    "name": "Hausa"
+    "name": "Hausa",
+    "dir": "rtl"
   },
   {
     "code": "he",
-    "name": "Hebrew (modern)"
+    "name": "Hebrew (modern)",
+    "dir": "rtl"
   },
   {
     "code": "hz",
-    "name": "Herero"
+    "name": "Herero",
+    "dir": "ltr"
   },
   {
     "code": "hi",
-    "name": "Hindi"
+    "name": "Hindi",
+    "dir": "ltr"
   },
   {
     "code": "ho",
-    "name": "Hiri Motu"
+    "name": "Hiri Motu",
+    "dir": "ltr"
   },
   {
     "code": "hu",
-    "name": "Hungarian"
+    "name": "Hungarian",
+    "dir": "ltr"
   },
   {
     "code": "ia",
-    "name": "Interlingua"
+    "name": "Interlingua",
+    "dir": "ltr"
   },
   {
     "code": "id",
-    "name": "Indonesian"
+    "name": "Indonesian",
+    "dir": "ltr"
   },
   {
     "code": "ie",
-    "name": "Interlingue"
+    "name": "Interlingue",
+    "dir": "ltr"
   },
   {
     "code": "ga",
-    "name": "Irish"
+    "name": "Irish",
+    "dir": "ltr"
   },
   {
     "code": "ig",
-    "name": "Igbo"
+    "name": "Igbo",
+    "dir": "ltr"
   },
   {
     "code": "ik",
-    "name": "Inupiaq"
+    "name": "Inupiaq",
+    "dir": "ltr"
   },
   {
     "code": "io",
-    "name": "Ido"
+    "name": "Ido",
+    "dir": "ltr"
   },
   {
     "code": "is",
-    "name": "Icelandic"
+    "name": "Icelandic",
+    "dir": "ltr"
   },
   {
     "code": "it",
-    "name": "Italian"
+    "name": "Italian",
+    "dir": "ltr"
   },
   {
     "code": "iu",
-    "name": "Inuktitut"
+    "name": "Inuktitut",
+    "dir": "ltr"
   },
   {
     "code": "ja",
-    "name": "Japanese"
+    "name": "Japanese",
+    "dir": "ltr"
   },
   {
     "code": "jv",
-    "name": "Javanese"
+    "name": "Javanese",
+    "dir": "ltr"
   },
   {
     "code": "kl",
-    "name": "Kalaallisut, Greenlandic"
+    "name": "Kalaallisut, Greenlandic",
+    "dir": "ltr"
   },
   {
     "code": "kn",
-    "name": "Kannada"
+    "name": "Kannada",
+    "dir": "ltr"
   },
   {
     "code": "kr",
-    "name": "Kanuri"
+    "name": "Kanuri",
+    "dir": "ltr"
   },
   {
     "code": "ks",
-    "name": "Kashmiri"
+    "name": "Kashmiri",
+    "dir": "rtl"
   },
   {
     "code": "kk",
-    "name": "Kazakh"
+    "name": "Kazakh",
+    "dir": "ltr"
   },
   {
     "code": "km",
-    "name": "Khmer"
+    "name": "Khmer",
+    "dir": "ltr"
   },
   {
     "code": "ki",
-    "name": "Kikuyu, Gikuyu"
+    "name": "Kikuyu, Gikuyu",
+    "dir": "ltr"
   },
   {
     "code": "rw",
-    "name": "Kinyarwanda"
+    "name": "Kinyarwanda",
+    "dir": "ltr"
   },
   {
     "code": "ky",
-    "name": "Kyrgyz"
+    "name": "Kyrgyz",
+    "dir": "ltr"
   },
   {
     "code": "kv",
-    "name": "Komi"
+    "name": "Komi",
+    "dir": "ltr"
   },
   {
     "code": "kg",
-    "name": "Kongo"
+    "name": "Kongo",
+    "dir": "ltr"
   },
   {
     "code": "ko",
-    "name": "Korean"
+    "name": "Korean",
+    "dir": "ltr"
   },
   {
     "code": "ku",
-    "name": "Kurdish"
+    "name": "Kurdish",
+    "dir": "rtl"
   },
   {
     "code": "kj",
-    "name": "Kwanyama, Kuanyama"
+    "name": "Kwanyama, Kuanyama",
+    "dir": "ltr"
   },
   {
     "code": "la",
-    "name": "Latin"
+    "name": "Latin",
+    "dir": "ltr"
   },
   {
     "code": "lb",
-    "name": "Luxembourgish, Letzeburgesch"
+    "name": "Luxembourgish, Letzeburgesch",
+    "dir": "ltr"
   },
   {
     "code": "lg",
-    "name": "Ganda"
+    "name": "Ganda",
+    "dir": "ltr"
   },
   {
     "code": "li",
-    "name": "Limburgish, Limburgan, Limburger"
+    "name": "Limburgish, Limburgan, Limburger",
+    "dir": "ltr"
   },
   {
     "code": "ln",
-    "name": "Lingala"
+    "name": "Lingala",
+    "dir": "ltr"
   },
   {
     "code": "lo",
-    "name": "Lao"
+    "name": "Lao",
+    "dir": "ltr"
   },
   {
     "code": "lt",
-    "name": "Lithuanian"
+    "name": "Lithuanian",
+    "dir": "ltr"
   },
   {
     "code": "lu",
-    "name": "Luba-Katanga"
+    "name": "Luba-Katanga",
+    "dir": "ltr"
   },
   {
     "code": "lv",
-    "name": "Latvian"
+    "name": "Latvian",
+    "dir": "ltr"
   },
   {
     "code": "gv",
-    "name": "Manx"
+    "name": "Manx",
+    "dir": "ltr"
   },
   {
     "code": "mk",
-    "name": "Macedonian"
+    "name": "Macedonian",
+    "dir": "ltr"
   },
   {
     "code": "mg",
-    "name": "Malagasy"
+    "name": "Malagasy",
+    "dir": "ltr"
   },
   {
     "code": "ms",
-    "name": "Malay"
+    "name": "Malay",
+    "dir": "ltr"
   },
   {
     "code": "ml",
-    "name": "Malayalam"
+    "name": "Malayalam",
+    "dir": "ltr"
   },
   {
     "code": "mt",
-    "name": "Maltese"
+    "name": "Maltese",
+    "dir": "ltr"
   },
   {
     "code": "mi",
-    "name": "MÄori"
+    "name": "MÄori",
+    "dir": "ltr"
   },
   {
     "code": "mr",
-    "name": "Marathi (MarÄá¹­hÄ«)"
+    "name": "Marathi (MarÄá¹­hÄ«)",
+    "dir": "ltr"
   },
   {
     "code": "mh",
-    "name": "Marshallese"
+    "name": "Marshallese",
+    "dir": "ltr"
   },
   {
     "code": "mn",
-    "name": "Mongolian"
+    "name": "Mongolian",
+    "dir": "ltr"
   },
   {
     "code": "na",
-    "name": "Nauru"
+    "name": "Nauru",
+    "dir": "ltr"
   },
   {
     "code": "nv",
-    "name": "Navajo, Navaho"
+    "name": "Navajo, Navaho",
+    "dir": "ltr"
   },
   {
     "code": "nb",
-    "name": "Norwegian BokmÃ¥l"
+    "name": "Norwegian BokmÃ¥l",
+    "dir": "ltr"
   },
   {
     "code": "nd",
-    "name": "North Ndebele"
+    "name": "North Ndebele",
+    "dir": "ltr"
   },
   {
     "code": "ne",
-    "name": "Nepali"
+    "name": "Nepali",
+    "dir": "ltr"
   },
   {
     "code": "ng",
-    "name": "Ndonga"
+    "name": "Ndonga",
+    "dir": "ltr"
   },
   {
     "code": "nn",
-    "name": "Norwegian Nynorsk"
+    "name": "Norwegian Nynorsk",
+    "dir": "ltr"
   },
   {
     "code": "no",
-    "name": "Norwegian"
+    "name": "Norwegian",
+    "dir": "ltr"
   },
   {
     "code": "ii",
-    "name": "Nuosu"
+    "name": "Nuosu",
+    "dir": "ltr"
   },
   {
     "code": "nr",
-    "name": "South Ndebele"
+    "name": "South Ndebele",
+    "dir": "ltr"
   },
   {
     "code": "oc",
-    "name": "Occitan"
+    "name": "Occitan",
+    "dir": "ltr"
   },
   {
     "code": "oj",
-    "name": "Ojibwe, Ojibwa"
+    "name": "Ojibwe, Ojibwa",
+    "dir": "ltr"
   },
   {
     "code": "cu",
-    "name": "Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic"
+    "name": "Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic",
+    "dir": "ltr"
   },
   {
     "code": "om",
-    "name": "Oromo"
+    "name": "Oromo",
+    "dir": "ltr"
   },
   {
     "code": "or",
-    "name": "Oriya"
+    "name": "Oriya",
+    "dir": "ltr"
   },
   {
     "code": "os",
-    "name": "Ossetian, Ossetic"
+    "name": "Ossetian, Ossetic",
+    "dir": "ltr"
   },
   {
     "code": "pa",
-    "name": "Panjabi, Punjabi"
+    "name": "Panjabi, Punjabi",
+    "dir": "ltr"
   },
   {
     "code": "pi",
-    "name": "PÄli"
+    "name": "PÄli",
+    "dir": "ltr"
   },
   {
     "code": "fa",
-    "name": "Persian (Farsi)"
+    "name": "Persian (Farsi)",
+    "dir": "rtl"
   },
   {
     "code": "pl",
-    "name": "Polish"
+    "name": "Polish",
+    "dir": "ltr"
   },
   {
     "code": "ps",
-    "name": "Pashto, Pushto"
+    "name": "Pashto, Pushto",
+    "dir": "rtl"
   },
   {
     "code": "pt",
-    "name": "Portuguese"
+    "name": "Portuguese",
+    "dir": "ltr"
   },
   {
     "code": "qu",
-    "name": "Quechua"
+    "name": "Quechua",
+    "dir": "ltr"
   },
   {
     "code": "rm",
-    "name": "Romansh"
+    "name": "Romansh",
+    "dir": "ltr"
   },
   {
     "code": "rn",
-    "name": "Kirundi"
+    "name": "Kirundi",
+    "dir": "ltr"
   },
   {
     "code": "ro",
-    "name": "Romanian"
+    "name": "Romanian",
+    "dir": "ltr"
   },
   {
     "code": "ru",
-    "name": "Russian"
+    "name": "Russian",
+    "dir": "ltr"
   },
   {
     "code": "sa",
-    "name": "Sanskrit (Saá¹ská¹›ta)"
+    "name": "Sanskrit (Saá¹ská¹›ta)",
+    "dir": "ltr"
   },
   {
     "code": "sc",
-    "name": "Sardinian"
+    "name": "Sardinian",
+    "dir": "ltr"
   },
   {
     "code": "sd",
-    "name": "Sindhi"
+    "name": "Sindhi",
+    "dir": "ltr"
   },
   {
     "code": "se",
-    "name": "Northern Sami"
+    "name": "Northern Sami",
+    "dir": "ltr"
   },
   {
     "code": "sm",
-    "name": "Samoan"
+    "name": "Samoan",
+    "dir": "ltr"
   },
   {
     "code": "sg",
-    "name": "Sango"
+    "name": "Sango",
+    "dir": "ltr"
   },
   {
     "code": "sr",
-    "name": "Serbian"
+    "name": "Serbian",
+    "dir": "ltr"
   },
   {
     "code": "gd",
-    "name": "Scottish Gaelic; Gaelic"
+    "name": "Scottish Gaelic; Gaelic",
+    "dir": "ltr"
   },
   {
     "code": "sn",
-    "name": "Shona"
+    "name": "Shona",
+    "dir": "ltr"
   },
   {
     "code": "si",
-    "name": "Sinhala, Sinhalese"
+    "name": "Sinhala, Sinhalese",
+    "dir": "ltr"
   },
   {
     "code": "sk",
-    "name": "Slovak"
+    "name": "Slovak",
+    "dir": "ltr"
   },
   {
     "code": "sl",
-    "name": "Slovene"
+    "name": "Slovene",
+    "dir": "ltr"
   },
   {
     "code": "so",
-    "name": "Somali"
+    "name": "Somali",
+    "dir": "ltr"
   },
   {
     "code": "st",
-    "name": "Southern Sotho"
+    "name": "Southern Sotho",
+    "dir": "ltr"
   },
   {
     "code": "az",
-    "name": "South Azerbaijani"
+    "name": "South Azerbaijani",
+    "dir": "ltr"
   },
   {
     "code": "es",
-    "name": "Spanish; Castilian"
+    "name": "Spanish; Castilian",
+    "dir": "ltr"
   },
   {
     "code": "su",
-    "name": "Sundanese"
+    "name": "Sundanese",
+    "dir": "ltr"
   },
   {
     "code": "sw",
-    "name": "Swahili"
+    "name": "Swahili",
+    "dir": "ltr"
   },
   {
     "code": "ss",
-    "name": "Swati"
+    "name": "Swati",
+    "dir": "ltr"
   },
   {
     "code": "sv",
-    "name": "Swedish"
+    "name": "Swedish",
+    "dir": "ltr"
   },
   {
     "code": "ta",
-    "name": "Tamil"
+    "name": "Tamil",
+    "dir": "ltr"
   },
   {
     "code": "te",
-    "name": "Telugu"
+    "name": "Telugu",
+    "dir": "ltr"
   },
   {
     "code": "tg",
-    "name": "Tajik"
+    "name": "Tajik",
+    "dir": "ltr"
   },
   {
     "code": "th",
-    "name": "Thai"
+    "name": "Thai",
+    "dir": "ltr"
   },
   {
     "code": "ti",
-    "name": "Tigrinya"
+    "name": "Tigrinya",
+    "dir": "ltr"
   },
   {
     "code": "bo",
-    "name": "Tibetan Standard, Tibetan, Central"
+    "name": "Tibetan Standard, Tibetan, Central",
+    "dir": "ltr"
   },
   {
     "code": "tk",
-    "name": "Turkmen"
+    "name": "Turkmen",
+    "dir": "ltr"
   },
   {
     "code": "tl",
-    "name": "Tagalog"
+    "name": "Tagalog",
+    "dir": "ltr"
   },
   {
     "code": "tn",
-    "name": "Tswana"
+    "name": "Tswana",
+    "dir": "ltr"
   },
   {
     "code": "to",
-    "name": "Tonga (Tonga Islands)"
+    "name": "Tonga (Tonga Islands)",
+    "dir": "ltr"
   },
   {
     "code": "tr",
-    "name": "Turkish"
+    "name": "Turkish",
+    "dir": "ltr"
   },
   {
     "code": "ts",
-    "name": "Tsonga"
+    "name": "Tsonga",
+    "dir": "ltr"
   },
   {
     "code": "tt",
-    "name": "Tatar"
+    "name": "Tatar",
+    "dir": "ltr"
   },
   {
     "code": "tw",
-    "name": "Twi"
+    "name": "Twi",
+    "dir": "ltr"
   },
   {
     "code": "ty",
-    "name": "Tahitian"
+    "name": "Tahitian",
+    "dir": "ltr"
   },
   {
     "code": "ug",
-    "name": "Uyghur, Uighur"
+    "name": "Uyghur, Uighur",
+    "dir": "ltr"
   },
   {
     "code": "uk",
-    "name": "Ukrainian"
+    "name": "Ukrainian",
+    "dir": "ltr"
   },
   {
     "code": "ur",
-    "name": "Urdu"
+    "name": "Urdu",
+    "dir": "rtl"
   },
   {
     "code": "uz",
-    "name": "Uzbek"
+    "name": "Uzbek",
+    "dir": "ltr"
   },
   {
     "code": "ve",
-    "name": "Venda"
+    "name": "Venda",
+    "dir": "ltr"
   },
   {
     "code": "vi",
-    "name": "Vietnamese"
+    "name": "Vietnamese",
+    "dir": "ltr"
   },
   {
     "code": "vo",
-    "name": "VolapÃ¼k"
+    "name": "VolapÃ¼k",
+    "dir": "ltr"
   },
   {
     "code": "wa",
-    "name": "Walloon"
+    "name": "Walloon",
+    "dir": "ltr"
   },
   {
     "code": "cy",
-    "name": "Welsh"
+    "name": "Welsh",
+    "dir": "ltr"
   },
   {
     "code": "wo",
-    "name": "Wolof"
+    "name": "Wolof",
+    "dir": "ltr"
   },
   {
     "code": "fy",
-    "name": "Western Frisian"
+    "name": "Western Frisian",
+    "dir": "ltr"
   },
   {
     "code": "xh",
-    "name": "Xhosa"
+    "name": "Xhosa",
+    "dir": "ltr"
   },
   {
     "code": "yi",
-    "name": "Yiddish"
+    "name": "Yiddish",
+    "dir": "rtl"
   },
   {
     "code": "yo",
-    "name": "Yoruba"
+    "name": "Yoruba",
+    "dir": "ltr"
   },
   {
     "code": "za",
-    "name": "Zhuang, Chuang"
+    "name": "Zhuang, Chuang",
+    "dir": "ltr"
   },
   {
     "code": "zu",
-    "name": "Zulu"
+    "name": "Zulu",
+    "dir": "ltr"
   }
 ]
