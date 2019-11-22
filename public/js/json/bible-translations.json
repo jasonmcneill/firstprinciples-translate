@@ -1,6 +1,6 @@
 {
   "lastupdated": {
-    "date": "2019-11-20",
+    "date": "2019-11-22",
     "by": {
       "name": "Jason McNeill",
       "email": "vrtjason@gmail.com"
@@ -10,7 +10,7 @@
     "name": "Bible Gateway",
     "url": {
       "website": "https://www.biblegateway.com/",
-      "translations": "https://www.biblegateway.com/versions/"
+      "versions": "https://www.biblegateway.com/versions/"
     }
   },
   "translations": [
