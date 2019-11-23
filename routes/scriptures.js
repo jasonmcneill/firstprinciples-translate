@@ -1,9 +1,9 @@
 var express = require("express");
 var router = express.Router();
 
-/* GET Home page. */
+/* GET Scriptures page. */
 router.get("/", function(req, res, next) {
-  res.render("index", { title: "First Principles Translation" });
+  res.render("scriptures", { title: "Scriptures" });
 });
 
 module.exports = router;
