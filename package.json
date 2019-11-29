@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "npm run start-server",
+    "start-server": "node ./bin/www",
+    "open-browser": "open-cli http://localhost:3000/"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,6 +17,7 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "open-cli": "^5.0.0",
+    "workbox-cli": "^4.3.1"
   }
 }

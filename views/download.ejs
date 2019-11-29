@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title><%= title %></title>
+  <title>Download</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="/css/bootstrap-4.3.1-dist/css/bootstrap.min.css">
@@ -16,38 +16,7 @@
     <div class="row">
 
       <div class="col-sm-1 fp-side-nav d-none d-sm-block">
-        <ul class="nav flex-column">
-          <li class="nav-item mt-2 mb-4 text-center">
-            <a class="nav-link" href="/settings">
-              <i class="fas fa-cog fa-2x"></i>
-              <div>Settings</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/scriptures">
-              <i class="fas fa-bible fa-2x"></i>
-              <div>Scriptures</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/pages">
-              <i class="far fa-file-alt fa-2x"></i><br>
-              <div>Pages</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/globals">
-              <i class="fas fa-globe fa-2x"></i>
-              <div>Global<br>Content</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/download">
-              <i class="fas fa-download fa-2x"></i>
-              <div>Download</div>
-            </a>
-          </li>
-        </ul>
+        <%- include('./navmenu'); %>
       </div>
 
       <div class="col-sm-11 fp-main py-2 bg-light text-dark">
@@ -55,9 +24,64 @@
 
           <div class="container ml-3">
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-12">
 
                 <h1 class="mt-0 mb-3">Download</h1>
+
+                <!-- Progress -->
+                <div class="row">
+                  <div class="col-md-5">
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Page</th>
+                          <th>Progress</th>
+                          <th>%</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        <!-- Settings -->
+                        <tr>
+                          <td><label for="progress_settings">Settings:</label></td>
+                          <td><progress id="progress_dial_settings" max="100" value="0"></progress></td>
+                          <td><span id="progress_text_settings">0%</span></td>
+                        </tr>
+
+                        <!-- Scriptures -->
+                        <tr>
+                          <td><label for="progress_scriptures">Scriptures:</label></td>
+                          <td><progress id="progress_dial_scriptures" max="100" value="0"></progress></td>
+                          <td><span id="progress_text_scriptures">0%</span></td>
+                        </tr>
+
+                        <!-- Pages -->
+                        <tr>
+                          <td><label for="progress_pages">Pages:</label></td>
+                          <td><progress id="progress_dial_pages" max="100" value="0">0%</progress></td>
+                          <td><span class="progress_text_pages">0%</span></td>
+                        </tr>
+
+                        <!-- Globals -->
+                        <tr>
+                          <td><label for="progress_dial_globals">Global Content:</label></td>
+                          <td><progress id="progress_dial_globals" max="100" value="0"></progress></td>
+                          <td><span id="progress_text_globals">0%</span></td>
+                        </tr>
+
+                        <!-- Overall -->
+                        <tr>
+                          <td><strong><label for="progress_dial_overall">Overall:</label></strong></td>
+                          <td><progress id="progress_dial_overall" max="100" value="0"></progress></td>
+                          <td><strong><span id="progress_text_overall">0%</span></strong></td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
 
               </div>
             </div>

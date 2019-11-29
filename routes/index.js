@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET Home page. */
 router.get("/", function(req, res, next) {
-  res.render("index", { title: "First Principles Translation" });
+  res.render("index");
 });
 
 module.exports = router;
