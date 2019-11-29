@@ -1,12 +1,5 @@
 (function() {
-  // Handles
-  const domparser = new DOMParser();
   const scripturelist = document.querySelector("#scripturelist");
-  const spinnerHTML = `
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  `;
 
   function onScriptureClick(e) {
     e.preventDefault();
@@ -30,56 +23,97 @@
   }
 
   function getScriptures() {
-    retrieveKeys()
-      .then(r => retrieveScriptures(r.scriptures))
+    getScripturesMeta()
+      .then(scripturesMeta => renderScriptures(scripturesMeta))
       .catch(error => console.error(error));
   }
 
-  function retrieveScriptures(scriptureKeys) {
-    const scriptures = [];
-    scriptureKeys.forEach(obj => {
-      scriptures.push(retrieveScripture(obj));
+  function getScripturesMeta() {
+    return new Promise((resolve, reject) => {
+      localforage
+        .getItem("scriptures-meta")
+        .then(result => {
+          if (!result)
+            throw new Error("scripture metadata not found in indexedDB");
+          resolve(result);
+        })
+        .catch(() => {
+          buildScripturesMeta()
+            .then(result => storeScripturesMeta(result))
+            .then(result => resolve(result))
+            .catch(error2 => reject(error2));
+        });
     });
-    scripturelist.innerHTML = spinnerHTML;
-    let refsHTML = "";
-    Promise.all(scriptures).then(scriptureObjects => {
-      localStorage.setItem("scriptures-meta", JSON.stringify(scriptureObjects));
-      scriptureObjects.forEach(obj => {
-        refsHTML += `
-          <tr>
-            <td>
-              <a href="#" data-key="${obj.key}">
-                ${obj.title}
-              </a>
-            </td>
-            <td class="text-center">
-              ${
-                obj.done
-                  ? '<i class="fas fa-check-circle fa-2x" style="color: green"></i>'
-                  : "&mdash;</i>"
-              }
-            </td>
-          </tr>
-        `;
+  }
+
+  function buildScripturesMeta() {
+    return new Promise((resolve, reject) => {
+      retrieveKeys()
+        .then(result => retrieveScriptureFiles(result.scriptures))
+        .then(result => storeScripturesMeta(result))
+        .then(result => resolve(result))
+        .catch(error => reject(error));
+    });
+  }
+
+  function retrieveScriptureFiles(scriptureKeys) {
+    return new Promise((resolve, reject) => {
+      const scriptures = [];
+      scriptureKeys.forEach(obj => {
+        scriptures.push(retrieveScripture(obj));
       });
-      refsHTML = `<tbody>${refsHTML}</tbody>`;
-      refsHTML = `
-        <thead>
-          <tr>
-            <th>Scripture</th>
-            <th class="text-center">Done?</th>
-          </tr>
-        </thead>
-        ${refsHTML}
-      `;
-      refsHTML = `<table class="table table-bordered table-striped">${refsHTML}</table>`;
-      scripturelist.innerHTML = refsHTML;
-      scripturelist
-        .querySelectorAll("a")
-        .forEach(item =>
-          item.addEventListener("click", onScriptureClick, false)
-        );
+      showSpinner();
+      Promise.all(scriptures)
+        .then(scriptureObjects => resolve(scriptureObjects))
+        .catch(error => reject(error));
     });
+  }
+
+  function storeScripturesMeta(scriptureObjects) {
+    return new Promise((resolve, reject) => {
+      localforage
+        .setItem("scriptures-meta", scriptureObjects)
+        .then(result => resolve(result))
+        .catch(error => reject(error));
+    });
+  }
+
+  function renderScriptures(scriptureObjects) {
+    let refsHTML = "";
+
+    scriptureObjects.forEach(obj => {
+      refsHTML += `
+        <tr>
+          <td>
+            <a href="#" data-key="${obj.key}">
+              ${obj.title}
+            </a>
+          </td>
+          <td class="text-center">
+            ${
+              obj.done
+                ? '<i class="fas fa-check-circle fa-2x" style="color: green"></i>'
+                : "&mdash;</i>"
+            }
+          </td>
+        </tr>
+      `;
+    });
+    refsHTML = `<tbody>${refsHTML}</tbody>`;
+    refsHTML = `
+      <thead>
+        <tr>
+          <th>Scripture</th>
+          <th class="text-center">Done?</th>
+        </tr>
+      </thead>
+      ${refsHTML}
+    `;
+    refsHTML = `<table class="table table-bordered table-striped">${refsHTML}</table>`;
+    scripturelist.innerHTML = refsHTML;
+    scripturelist
+      .querySelectorAll("a")
+      .forEach(item => item.addEventListener("click", onScriptureClick, false));
   }
 
   function retrieveScripture(obj) {
@@ -88,6 +122,7 @@
       fetch(url)
         .then(r => r.text())
         .then(xml => {
+          const domparser = new DOMParser();
           const doc = domparser.parseFromString(xml, "application/xml");
           const scriptureReference = doc
             .querySelector("passage")
@@ -101,6 +136,15 @@
         })
         .catch(error => reject(error));
     });
+  }
+
+  function showSpinner() {
+    const spinnerHTML = `
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    `;
+    scripturelist.innerHTML = spinnerHTML;
   }
 
   function init() {
