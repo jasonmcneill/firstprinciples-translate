@@ -1,5 +1,9 @@
 (function() {
   const scripturelist = document.querySelector("#scripturelist");
+  const TEMPLATE_ROOT = "./firstprinciples-materialdesign/lang/template";
+  const modalCancelButton = document
+    .querySelector("#scriptureModal")
+    .querySelector("[data-dismiss=modal]");
 
   function onScriptureClick(e) {
     e.preventDefault();
@@ -7,13 +11,8 @@
     editScripture(scriptureKey);
   }
 
-  function editScripture(scriptureKey) {
-    console.log("Editing " + scriptureKey);
-    // TODO
-  }
-
   function retrieveKeys() {
-    const url = "./firstprinciples-materialdesign/lang/template/keys.json";
+    const url = `${TEMPLATE_ROOT}/keys.json`;
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(r => r.json())
@@ -85,8 +84,13 @@
       refsHTML += `
         <tr>
           <td>
-            <a href="#" data-key="${obj.key}">
-              ${obj.title}
+            <a 
+              href="#" 
+              data-key="${obj.key}" 
+              data-toggle="modal" 
+              data-target="#scriptureModal">
+              ${obj.title} 
+              <i class="ml-3 fas fa-external-link-alt"></i>
             </a>
           </td>
           <td class="text-center">
@@ -118,7 +122,7 @@
 
   function retrieveScripture(obj) {
     return new Promise((resolve, reject) => {
-      const url = `./firstprinciples-materialdesign/lang/template/scriptures/${obj.key}/content.xml`;
+      const url = `${TEMPLATE_ROOT}/scriptures/${obj.key}/content.xml`;
       fetch(url)
         .then(r => r.text())
         .then(xml => {
@@ -145,6 +149,46 @@
       </div>
     `;
     scripturelist.innerHTML = spinnerHTML;
+  }
+
+  async function editScripture(scriptureKey) {
+    const modal = document.querySelector("#scriptureModal");
+    const modalLabel = document.querySelector("#scriptureModalLabel");
+    const modalBody = modal.querySelector(".modal-body");
+    modalLabel.innerText = "";
+    modalBody.innerHTML = "";
+    let scriptureHTML = "";
+    const domparser = new DOMParser();
+    const url = `${TEMPLATE_ROOT}/scriptures/${scriptureKey}/content.xml`;
+    const doc = await fetch(url)
+      .then(r => r.text())
+      .then(r => domparser.parseFromString(r, "application/xml"));
+    const titleEn = doc.querySelector("passage").getAttribute("title-en");
+    const bookEn = doc.querySelector("passage").getAttribute("book-en");
+    const chapters = doc.querySelectorAll("chapter");
+    chapters.forEach(chapter => {
+      let chapterHTML = "";
+      const chapterNumberEn = chapter.getAttribute("number-en");
+      const verses = chapter.querySelectorAll("verse");
+      chapterHTML += `<div class="form-group row chapter">`;
+      chapterHTML += `  <div class="col-sm-2 pt-1"><strong>Chapter ${chapterNumberEn}</strong></div>`;
+      chapterHTML += `  <div class="col-sm-3"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text">Chapter:</span></div><input size="3" maxlength="3" class="form-control chapterNumberInput" type="tel" pattern=[0-9] placeholder="#"></div></div>`;
+      chapterHTML += `</div>`;
+      verses.forEach(verse => {
+        let verseHTML = "";
+        const verseNumberEn = verse.getAttribute("number-en");
+        const hasJesusWords = verse.hasAttribute("jesuswords");
+        const hasScriptureQuote = verse.hasAttribute("scripturequote");
+        verseHTML += `<div class="form-group row verse">`;
+        verseHTML += `  <div class="col-sm-2 pt-1"><strong>Verse ${verseNumberEn}</strong></div>`;
+        verseHTML += `  <div class="col-sm-10"><div class="input-group mb-2"><div class="input-group-prepend"><span class="input-group-text">Verse:</span><br><input size="3" maxlength="3" class="form-control verseNumberInput" type="tel" pattern=[0-9] data-chapter-number="${chapterNumberEn}" data-verse-number="${verseNumberEn}" placeholder="#"></div></div><textarea rows="4" class="form-control verseTextInput" data-chapter-number="${chapterNumberEn}" data-verse-number="${verseNumberEn}" data-has-jesus-words="${hasJesusWords}" data-has-scripture-quote="${hasScriptureQuote}"></textarea></div>`;
+        verseHTML += `</div>`;
+        chapterHTML += verseHTML;
+      });
+      scriptureHTML += chapterHTML;
+    });
+    modalLabel.innerText = titleEn;
+    modalBody.innerHTML = scriptureHTML;
   }
 
   function init() {
