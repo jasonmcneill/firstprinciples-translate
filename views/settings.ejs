@@ -12,107 +12,72 @@
 
 <body>
 
+  <%- include('./navmenu'); %>
+
   <div class="container-fluid fp-master">
     <div class="row">
 
-      <div class="col-sm-1 fp-side-nav d-none d-sm-block">
-        <ul class="nav flex-column">
-          <li class="nav-item mt-2 mb-4 text-center">
-            <a class="nav-link" href="/settings">
-              <i class="fas fa-cog fa-2x"></i>
-              <div>Settings</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/scriptures">
-              <i class="fas fa-bible fa-2x"></i>
-              <div>Scriptures</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/pages">
-              <i class="far fa-file-alt fa-2x"></i><br>
-              <div>Pages</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/globals">
-              <i class="fas fa-globe fa-2x"></i>
-              <div>Global<br>Content</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/download">
-              <i class="fas fa-download fa-2x"></i>
-              <div>Download</div>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-sm-11 fp-main py-2 bg-light text-dark">
+      <div class="col fp-main bg-light text-dark">
         <form id="form-settings" novalidate>
 
-          <div class="container ml-3">
-            <div class="row">
-              <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-3">
 
-                <h1 class="mt-0 mb-3">Settings</h1>
+              <h3 class="mt-0 mb-3">Settings</h3>
 
-                <div class="form-group mb-4" id="name_group">
-                  <label for="Name">Your name:</label>
-                  <input type="text" class="form-control" id="name" required>
-                  <div class="valid-feedback">Looks good!</div>
-                  <div class="invalid-feedback">Please input your name.</div>
-                </div>
-
-                <div class="form-group mb-4" id="email_group">
-                  <label for="email">Your e-mail:</label>
-                  <input type="email" class="form-control" id="email">
-                  <div class="valid-feedback">Looks good!</div>
-                  <div class="invalid-feedback">Please input your e-mail address.</div>
-                </div>
-
-                <div class="form-group mb-4" id="lang_group">
-                  <label for="lang">Translating from English into...</label>
-                  <select class="form-control" id="lang"></select>
-                  <div class="valid-feedback">Looks good!</div>
-                  <div class="invalid-feedback">Please select the language that you're translating into.</div>
-                </div>
-
-                <div class="form-group mb-4 d-none" id="bibleversion_lang_group">
-                  <label for="bibleversion">Bible version:</label>
-                  <select class="form-control" id="bibleversion"></select>
-                  <div class="valid-feedback">Looks good!</div>
-                  <div class="invalid-feedback">Please select the Bible version.</div>
-                </div>
-
-                <div class="row">
-                  <div class="col-sm-2">
-                    <button type="submit" class="btn btn-primary">
-                      Save
-                    </button>
-                  </div>
-                  <div class="col-sm-10">
-                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                      <div class="toast-header">
-                        <strong class="mr-auto"></strong>
-                        <small class="text-muted"></small>
-                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="toast-body"></div>
-                    </div>
-                  </div>
-                </div>
-
+              <div class="form-group mb-4" id="name_group">
+                <label for="Name">Your name:</label>
+                <input type="text" class="form-control" id="name" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please input your name.</div>
               </div>
+
+              <div class="form-group mb-4" id="email_group">
+                <label for="email">Your e-mail:</label>
+                <input type="email" class="form-control" id="email">
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please input your e-mail address.</div>
+              </div>
+
+              <div class="form-group mb-4" id="lang_group">
+                <label for="lang">Translating from English into...</label>
+                <select class="form-control" id="lang"></select>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please select the language that you're translating into.</div>
+              </div>
+
+              <div class="form-group mb-4 d-none" id="bibleversion_lang_group">
+                <label for="bibleversion">Bible version:</label>
+                <select class="form-control" id="bibleversion"></select>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please select the Bible version.</div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-2">
+                  <button type="submit" class="btn btn-primary">
+                    Save
+                  </button>
+                </div>
+                <div class="col-sm-10">
+                  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <strong class="mr-auto"></strong>
+                      <small class="text-muted"></small>
+                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="toast-body"></div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
-
-        </form>
       </div>
+
+      </form>
     </div>
   </div>
 

@@ -12,83 +12,107 @@
 
 <body>
 
+  <%- include('./navmenu'); %>
+
   <div class="container-fluid fp-master">
     <div class="row">
 
-      <div class="col-sm-1 fp-side-nav d-none d-sm-block">
-        <%- include('./navmenu'); %>
-      </div>
-
-      <div class="col-sm-11 fp-main py-2 bg-light text-dark">
+      <div class="col fp-main bg-light text-dark">
         <form id="form-settings" novalidate>
 
-          <div class="container ml-3">
-            <div class="row">
-              <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-12">
 
-                <h1 class="mt-0 mb-3">Download</h1>
+              <h3 class="mt-0 mb-3">Download</h3>
 
-                <!-- Progress -->
-                <div class="row">
-                  <div class="col-md-5">
+              <!-- Progress -->
+              <div class="row">
+                <div class="col-md-4">
 
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>Page</th>
-                          <th>Progress</th>
-                          <th>%</th>
-                        </tr>
-                      </thead>
-                      <tbody>
+                  <table class="table table-striped table-bordered">
 
-                        <!-- Settings -->
-                        <tr>
-                          <td><label for="progress_settings">Settings:</label></td>
-                          <td><progress id="progress_dial_settings" max="100" value="0"></progress></td>
-                          <td><span id="progress_text_settings">0%</span></td>
-                        </tr>
+                    <thead>
+                      <tr>
+                        <th colspan="2" class="bg-info text-light text-center">
+                          Progress
+                        </th>
+                      </tr>
+                    </thead>
 
-                        <!-- Scriptures -->
-                        <tr>
-                          <td><label for="progress_scriptures">Scriptures:</label></td>
-                          <td><progress id="progress_dial_scriptures" max="100" value="0"></progress></td>
-                          <td><span id="progress_text_scriptures">0%</span></td>
-                        </tr>
+                    <tbody>
+                      <!-- Settings -->
+                      <tr>
+                        <td>
+                          <label for="progress_settings">Settings:</label>
+                        </td>
+                        <td>
+                          <progress id="progress_dial_settings" max="100" value="100"></progress>
+                          <div id="progress_text_settings" class="float-right">100%</div>
+                        </td>
+                      </tr>
 
-                        <!-- Pages -->
-                        <tr>
-                          <td><label for="progress_pages">Pages:</label></td>
-                          <td><progress id="progress_dial_pages" max="100" value="0">0%</progress></td>
-                          <td><span class="progress_text_pages">0%</span></td>
-                        </tr>
+                      <!-- Globals -->
+                      <tr>
+                        <td>
+                          <label for="progress_dial_globals">Globals:</label>
+                        </td>
+                        <td>
+                          <progress id="progress_dial_globals" max="100" value="100"></progress>
+                          <span id="progress_text_globals" class="float-right">100%</span>
+                        </td>
+                      </tr>
 
-                        <!-- Globals -->
-                        <tr>
-                          <td><label for="progress_dial_globals">Global Content:</label></td>
-                          <td><progress id="progress_dial_globals" max="100" value="0"></progress></td>
-                          <td><span id="progress_text_globals">0%</span></td>
-                        </tr>
+                      <!-- Scriptures -->
+                      <tr>
+                        <td><label for="progress_scriptures">Scriptures:</label></td>
+                        <td>
+                          <progress id="progress_dial_scriptures" max="100" value="90"></progress>
+                          <span id="progress_text_scriptures" class="float-right">90%</span>
+                        </td>
+                      </tr>
 
-                        <!-- Overall -->
-                        <tr>
-                          <td><strong><label for="progress_dial_overall">Overall:</label></strong></td>
-                          <td><progress id="progress_dial_overall" max="100" value="0"></progress></td>
-                          <td><strong><span id="progress_text_overall">0%</span></strong></td>
-                        </tr>
+                      <!-- Pages -->
+                      <tr>
+                        <td>
+                          <label for="progress_pages">Pages:</label>
+                        </td>
+                        <td>
+                          <progress id="progress_dial_pages" max="100" value="0">0%</progress>
+                          <span id="progress_text_pages" class="float-right">0%</span>
+                        </td>
+                      </tr>
 
-                      </tbody>
-                    </table>
+                      <!-- Overall -->
+                      <tr>
+                        <td>
+                          <big>
+                            <strong>
+                              <label for="progress_dial_overall">Overall:</label>
+                            </strong>
+                          </big>
+                        </td>
+                        <td>
+                          <progress id="progress_dial_overall" max="100" value="73"></progress>
+                          <big>
+                            <strong>
+                              <span id="progress_text_overall" class="float-right">73%</span>
+                            </strong>
+                          </big>
+                        </td>
+                      </tr>
 
-                  </div>
+                    </tbody>
+
+                  </table>
+
                 </div>
-
               </div>
+
             </div>
           </div>
-
-        </form>
       </div>
+
+      </form>
     </div>
   </div>
 
@@ -96,7 +120,7 @@
   <script type="text/javascript" src="/js/jquery-3.3.1.slim.min.js"></script>
   <script type="text/javascript" src="/js/popper.min.js"></script>
   <script type="text/javascript" src="/css/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
-  <script type="text/javascript" src="/js/pages/settings.js"></script>
+  <script type="text/javascript" src="/js/pages/download.js"></script>
 
 </body>
 

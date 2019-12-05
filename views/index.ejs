@@ -12,78 +12,43 @@
 
 <body>
 
+  <%- include('./navmenu'); %>
+
   <div class="container-fluid fp-master">
+
     <div class="row">
 
-      <div class="col-sm-1 fp-side-nav d-none d-sm-block">
-        <ul class="nav flex-column">
-          <li class="nav-item mt-2 mb-4 text-center">
-            <a class="nav-link" href="/settings">
-              <i class="fas fa-cog fa-2x"></i>
-              <div>Settings</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/scriptures">
-              <i class="fas fa-bible fa-2x"></i>
-              <div>Scriptures</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/pages">
-              <i class="far fa-file-alt fa-2x"></i><br>
-              <div>Pages</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/globals">
-              <i class="fas fa-globe fa-2x"></i>
-              <div>Global<br>Content</div>
-            </a>
-          </li>
-          <li class="nav-item mb-4 text-center">
-            <a class="nav-link" href="/download">
-              <i class="fas fa-download fa-2x"></i>
-              <div>Download</div>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-sm-11 fp-main py-2 bg-light text-dark">
+      <div class="col fp-main bg-light text-dark">
         <form id="form-settings" novalidate>
 
-          <div class="container ml-3">
-            <div class="row">
-              <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-12">
 
-                <h1>First Principles Translation</h1>
+              <p>
+                This application will enable you to create a version of the First Principles app for a particular
+                language and Bible version.
+              </p>
 
-                <p>
-                  This application will enable you to create a version of the First Principles app for a particular
-                  language and Bible version.
-                </p>
+              <h4>Instructions</h4>
 
-                <h2>How to Use</h2>
+              <p>
+                Please click on one of the navigation icons to begin. This will take you to a corresponding page. You
+                will see a progress bar at the top of each page on this site, indicating the percentage of necessary
+                work that you have completed. When the progress bar has reached 100%, visit the <a
+                  href="/download">Download</a> page,
+                which will let you download a ZIP file. That ZIP file contains the entire completed translation. You
+                must provide the ZIP file to the Cyberministry.
+              </p>
 
-                <p>
-                  Please click on one of the navigation icons to begin. This will take you to a corresponding page. You
-                  will see a progress bar at the top of each page on this site, indicating the percentage of necessary
-                  work that you have completed. When the progress bar has reached 100%, click on the Download icon,
-                  which will let you download a ZIP file. That ZIP file contains the entire completed translation. You
-                  must provide the ZIP file to the Cyberministry.
-                </p>
+              <p>
+                Thank you for your service!
+              </p>
 
-                <p>
-                  Thank you for your service!
-                </p>
-
-              </div>
             </div>
           </div>
-
-        </form>
       </div>
+
+      </form>
     </div>
   </div>
 
