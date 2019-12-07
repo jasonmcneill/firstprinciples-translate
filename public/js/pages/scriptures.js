@@ -166,27 +166,77 @@
     const titleEn = doc.querySelector("passage").getAttribute("title-en");
     const bookEn = doc.querySelector("passage").getAttribute("book-en");
     const chapters = doc.querySelectorAll("chapter");
-    chapters.forEach(chapter => {
+    const referenceHTML = `
+      <div class="form-group row scriptureBook mb-4">
+        <div class="col-sm-2">
+          <strong>Book name:</strong>
+        </div>
+        <div class="col-sm-9">
+          <div class="mb-2">
+            ${bookEn}
+          </div>
+          <input type="text" tabindex="1" class="form-control" name="book" id="scriptureBook" placeholder="Translation of book name..." required>
+        </div>
+      </div>
+      <div class="form-group row scriptureReference mb-4">
+        <div class="col-sm-2">
+          <strong>Reference:</strong>
+        </div>
+        <div class="col-sm-9">
+          <div class="mb-2">
+            ${titleEn}
+          </div>
+          <input type="text" tabindex="2" class="form-control" name="reference" id="scriptureReference" placeholder="Translation of reference..." required>
+        </div>
+      </div>
+
+      <p>
+        <strong>Chapters &amp; Verses:</strong>
+      </p>
+    `;
+    chapters.forEach((chapter, chapterIndex) => {
+      const chapterTabIndex = chapterIndex + 3;
       let chapterHTML = "";
       const chapterNumberEn = chapter.getAttribute("number-en");
       const verses = chapter.querySelectorAll("verse");
-      chapterHTML += `<div class="form-group row chapter">`;
-      chapterHTML += `  <div class="col-sm-2 pt-1"><strong>Chapter ${chapterNumberEn}</strong></div>`;
-      chapterHTML += `  <div class="col-sm-3"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text">Chapter:</span></div><input size="3" maxlength="3" class="form-control chapterNumberInput" type="tel" pattern=[0-9] placeholder="#"></div></div>`;
-      chapterHTML += `</div>`;
-      verses.forEach(verse => {
+      const versesLen = verses.length;
+      chapterHTML += `<div class="form-group row chapter mb-4">
+                        <div class="col-sm-2">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Chapter:</span>
+                            </div>
+                            <input size="3" maxlength="3" tabindex="${chapterTabIndex}" class="form-control chapterNumberInput" value="${chapterNumberEn}" type="tel" pattern=[0-9] placeholder="Ch. #" required>
+                          </div>
+                        </div>
+                      </div>`;
+      verses.forEach((verse, verseIndex) => {
+        const tabindex = {
+          verse: chapterTabIndex + versesLen + verseIndex + 1,
+          text: chapterTabIndex + verseIndex + 1
+        };
         let verseHTML = "";
         const verseNumberEn = verse.getAttribute("number-en");
         const hasJesusWords = verse.hasAttribute("jesuswords");
         const hasScriptureQuote = verse.hasAttribute("scripturequote");
-        verseHTML += `<div class="form-group row verse">`;
-        verseHTML += `  <div class="col-sm-2 pt-1"><strong>Verse ${verseNumberEn}</strong></div>`;
-        verseHTML += `  <div class="col-sm-10"><div class="input-group mb-2"><div class="input-group-prepend"><span class="input-group-text">Verse:</span><br><input size="3" maxlength="3" class="form-control verseNumberInput" type="tel" pattern=[0-9] data-chapter-number="${chapterNumberEn}" data-verse-number="${verseNumberEn}" placeholder="#"></div></div><textarea rows="4" class="form-control verseTextInput" data-chapter-number="${chapterNumberEn}" data-verse-number="${verseNumberEn}" data-has-jesus-words="${hasJesusWords}" data-has-scripture-quote="${hasScriptureQuote}"></textarea></div>`;
-        verseHTML += `</div>`;
+        verseHTML += `<div class="form-group row verse mb-4">
+                        <div class="col-sm-2">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Verse:</span>
+                            </div>
+                            <br><input size="3" maxlength="3" value="${verseNumberEn}" tabindex="${tabindex.verse}" class="form-control verseNumberInput" type="tel" pattern=[0-9] data-chapter-number="${chapterNumberEn}" data-verse-number="${verseNumberEn}" placeholder="V. #" required>
+                          </div>
+                        </div>
+                        <div class="col-sm-10">
+                          <textarea rows="4" class="form-control verseTextInput" tabindex="${tabindex.text}" data-chapter-number="${chapterNumberEn}" data-verse-number="${verseNumberEn}" data-has-jesus-words="${hasJesusWords}" data-has-scripture-quote="${hasScriptureQuote}" placeholder="Text of verse ${verseNumberEn}..." required></textarea>
+                        </div>
+                      </div>`;
         chapterHTML += verseHTML;
       });
       scriptureHTML += chapterHTML;
     });
+    scriptureHTML = referenceHTML + scriptureHTML;
     modalLabel.innerText = titleEn;
     modalBody.innerHTML = scriptureHTML;
   }
