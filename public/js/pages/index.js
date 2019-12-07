@@ -1,6 +1,6 @@
 (() => {
   function init() {
-    fpt.setActiveNavLink("/download");
+    fpt.setActiveNavLink("/");
   }
 
   init();

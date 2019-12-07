@@ -251,6 +251,7 @@
   }
 
   function init() {
+    fpt.setActiveNavLink("/settings");
     retrieveAndPopulateLanguages();
     $(".toast").toast({
       animation: true,

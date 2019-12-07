@@ -192,6 +192,7 @@
   }
 
   function init() {
+    fpt.setActiveNavLink("/scriptures");
     getScriptures();
   }
 
